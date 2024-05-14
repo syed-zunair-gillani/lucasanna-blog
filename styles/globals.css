@@ -1,0 +1,382 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
+
+@layer components {
+  .navitem {
+    @apply font-sohne_400 p-3 border-b-[1px] border-gray-200 hover:tracking-widest pl-8 hover:shadow-md hover:text-yellow transition-all duration-200 cursor-pointer ease-linear
+  }
+  .primary-btn{
+    @apply flex items-center gap-1 p-4 px-8 text-base hover:bg-yellow hover:text-main transition-all ease-linear font-light text-white bg-main
+  }
+  .text_bg{
+    @apply pl-1 mr-1 text-white bg-yellow
+  }
+}
+
+/* custom fonts  */
+@font-face {
+    font-family: "sohne_400";
+    src: url("../public//fonts/sohne-400-normal.woff");
+}
+@font-face {
+    font-family: "sohne_500";
+    src: url("../public//fonts/sohne-500-normal.woff");
+}
+@font-face {
+    font-family: "sohne_700";
+    src: url("../public//fonts/sohne-700-normal.woff");
+}
+@font-face {
+    font-family: "source_serif_700";
+    src: url("../public//fonts/source-serif-pro-400-normal.woff");
+}
+@font-face {
+  font-family: "rubik_light";
+  src: url("../public//fonts/Rubik-Light.ttf");
+}
+@font-face {
+  font-family: "rubik_regular";
+  src: url("../public//fonts/Rubik-Regular.ttf");
+}
+@font-face {
+  font-family: "rubik_medium";
+  src: url("../public//fonts/Rubik-Medium.ttf");
+}
+@font-face {
+  font-family: "canelaDeck";
+  src: url("../public//fonts/CanelaDeck-Medium-Trial.otf");
+}
+
+
+/* custom xss  */
+
+  .slider {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+  }
+  .slide {
+    display: flex;
+    align-items: center;
+    animation: slideshow 100s linear infinite;
+  }
+  @keyframes slideshow {
+    0% {transform: translateX(0);}
+    100% {transform: translateX(-100%);}
+  }
+  .slider:hover .slide{
+    animation-play-state: paused;
+  }
+  .opesity-bg{
+    background: rgba(32, 33, 33, 0.7);
+  }
+  .line-height{
+    line-height: 3.4rem !important;
+  }
+
+  /* video background  */
+  video.fullscreen {
+    position: absolute;
+    z-index: 0;
+    object-fit: cover;
+    width:100%;
+    height:100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .overlay{
+    background: linear-gradient(32deg, rgba(254,191,47,0.8295912114845938) 0%, rgba(17,17,17,0.41222426470588236) 24%);
+  }
+  body,html {
+    scroll-behavior: smooth;
+  }
+  .font{
+    font-family: 'Oswald' !important;
+  }
+
+.single_post img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 1rem 0;
+}
+.single_post p{
+  font-size: 1.1rem;
+  line-height: 1.75rem;
+  font-family: rubik_light, sans-serif;
+  color: rgb(107, 107, 107);
+  font-weight: 400;
+  margin-top: .5rem;
+}
+.single_post p:first-child:first-letter{
+  font-family: source_serif_700, sans-serif;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  color: rgb(41, 41, 41);
+}
+.single_post h1{
+  font-family: rubik_medium, sans-serif;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-top: 1rem;
+  color: #202121;
+}
+.single_post h4{
+  margin-top: .7rem;
+  font-family: 600;
+  font-family: "rubik_medium";
+  color: #333333;
+}
+.single_post strong{
+  font-weight: 700;
+}
+.single_post a{
+  color: #1877F2 !important;
+}
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877F2;
+  color: #ffffff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1DA1F2;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #E4405F;
+  color: #ffffff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #333333;
+  color: #ffffff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background: #CD201F;
+  color: #ffffff;
+}
+ 
+.tags span:nth-child(2n+1){
+  background: #FDF2F8;
+  border: 1px solid #FCE6F3;
+}
+.tags span:nth-child(2n+2){
+  background: #F0FDF4;
+  border: 1px solid #DCFCE7;
+}
+.tags span:nth-child(3n+1){
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+}
+.tags span:nth-child(4n+1){
+  background: #FFF7ED;
+  border: 1px solid #FFEDD4;
+}
+.pagination_wrapper {
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
+}
+.pagination_wrapper li a:hover{
+  background: rgba(254,191,47,0.8295912114845938);
+}
+.pagination_wrapper li{
+  transition: 0.3s ease-in-out;
+}
+.pagination_wrapper li a{
+  padding: 0.6rem 0.9rem;
+  color: rgb(27, 27, 27);
+  text-transform: capitalize;
+  border-radius: 8px;
+  background: rgba(239, 239, 239, 0.83);
+}
+.pagination_wrapper li.active a{
+  background: #E4405F;
+  color: white;
+}
+.pagination_wrapper .previous a, .pagination_wrapper .next a{
+  background: rgba(254,191,47,0.8295912114845938);
+  color: white;
+}
+.pagination_wrapper li:hover{
+  scale: 1.1;
+}
+.pagination_wrapper li.disabled a{
+  background: rgb(211, 209, 209);
+}
+.write_for_us p{
+  margin-top: 1rem;
+}
+.write_for_us li{
+  list-style: circle;
+  margin-top: 10px;
+}
+.write_for_us li strong {
+  font-family: sohne_500;
+  text-decoration: underline;
+  color: #111;
+}
+.write_for_us ul{
+  padding-left: 1rem;
+}
+.write_for_us a{
+ color: #1DA1F2;
+}
+.write_for_us h2, .write_for_us h1, .write_for_us h3, .write_for_us h4{
+  color: #111
+}
+.main-background{
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.single_post h2, .single_post h3, .prosandconsheading {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: .7rem;
+  line-height: 1.8rem;
+  font-family: "canelaDeck";
+}
+.single_post strong {
+  font-weight: bold;
+  color:black
+}
+.single_post blockquote{
+  background: #fec02f61;
+  margin: 10px 0;
+  padding: 2rem;
+  font-size: 18px;
+  font-family: "canelaDeck";
+}
+.single_post ul, .single_post ol{
+  margin-top: 12px;
+  padding-left: 14px;
+  font-size: 1.1rem;
+  line-height: 1.75rem;
+  font-family: rubik_light, sans-serif;
+  color: rgb(52, 52, 52);
+  font-weight: 500;
+  margin-top: 1rem;
+}
+.single_post ul li{
+  list-style-type: circle;
+  margin-top: 6px;
+  font-weight: 500;
+}
+.single_post h6{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+.single_post ol li{
+  list-style-type: decimal;
+}
+
+
+
+@media (max-width:640px){
+.icon{
+  box-shadow: none !important;
+}
+.single_post img{
+  height: 260px;
+  object-fit: contain;
+}
+.single_post h2, .single_post h3 {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+}
+
+.write_for_us strong{
+  font-weight: 600 !important;
+}
+
+
